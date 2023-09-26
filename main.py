@@ -2315,3 +2315,151 @@
 # # print(typed_fn(3.6, 4.5, 7.8))
 # print(typed_fn2("Hello, ", "world", "!!"))
 # print(typed_fn3("Hello, ", "world", z=5))
+
+
+# q = 'Pyt'
+# w = "hon"
+# e = q + w
+# print(e)
+# # print(e[::-1])
+# # print(e*3)
+# e = e[:3] + 't' + e[4:]
+# print(e)
+
+# def changeCharTostr(s, c_old, c_new):
+#     s2 = ""
+#
+#     for i in s:
+#         if i == c_old:
+#             s2 += c_new
+#             continue
+#         s2 += i
+#     return s2
+#
+#
+# str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования."
+# # str2 = 'Я изучаю Python. Мне нравится Python. Python очень интересный язык программирования.'
+#
+# str2 = changeCharTostr(str1, "N", "P")
+# print("str1 =", str1)
+# print("str2 =", str2)
+
+
+# print("Привет")
+# print(u"Привет")
+# print("C:\\folder\\filter.txt")
+
+# print(r"C:\folder\filter.txt")
+# print(r"C:\folder\\"[:-1])
+# print(r"C:\folder" + "\\")
+# print("C:\\folder\\")
+
+# name = "Дмитрий"
+# age = 25
+# print("Меня зовут " + name + ". Мне" + str(age) + " лет.")
+# print(f"Меня зовут {name}. Мне {age} лет.")
+#
+# print(f"{round(3.12314, 2)}")
+# print(f"{3.12314:.2f}")
+
+# x = 10
+# y= 5
+# print("x =", x)
+# print(f"{x = }, {y = }")
+# print(f"{x} x {y} / 2 = {x * y / 2}")
+
+# num = 74
+# print(f"{{{num}}}")
+# print(f"{{{{{num}}}}}")
+
+
+# dir_name = "folder"
+# file_name = "File.txt"
+# print(fr"home\{dir_name}\{file_name}")
+# print("home" + "\\" + dir_name + "\\" + file_name)
+
+# s = """<div>
+# <a href="#">content</a>
+# </div>"""
+# print(s)
+
+# def square(n):
+#     """Принимает число n, возвращает квадрат числа n"""
+#     return n ** 2
+#
+#
+# print(square(5))
+# print(square.__doc__)
+
+# import math
+#
+#
+# def cylinder(r, h):
+#     """
+#     Вычисляет площадь цилиндра.
+#
+#     Вычисляет площадь цилиндра, на основании заданной высоты, и радиуса основания
+#
+#     :param r: Положительное число, радиус основания цилиндра
+#     :param h: Положительное число, высота цилиндра
+#     :return: Положительное число, площадь цилиндра
+#     """
+#     return 2 * math.pi * r * (r + h)
+#
+#
+# print(cylinder(2, 4))
+# print(cylinder.__doc__)
+
+# print(ord('a'))
+# print(ord('А'))
+# print(ord('Я'))
+# print(ord('а'))
+
+# s = "Test string for me"
+# arr = [ord(x) for x in s]
+# print("ASCII коды:", arr)
+# arr = [int(sum(arr) / len(arr))] + arr
+# print("Среднее арифметическое:", arr)
+# arr += [ord(x) for x in input("--> ")[:3] if ord(x) not in arr]
+# print(arr)
+# print(arr.count(arr[-1]) - 1)
+# arr.sort(reverse=True)
+# print(arr)
+
+# print(chr(97))
+# print(chr(75))
+
+# a = 122
+# b = 97
+# print(*(chr(x) for x in range(a, b + 1)) if a < b else (chr(x) for x in range(b, a + 1)))
+
+# print("apple" == "Apple")
+# print("apple" > "Apple")
+
+# from random import randint
+#
+# SHORTEST = 7
+# LONGEST = 10
+# MIN_ASC = 33
+# MAX_ASC = 126
+#
+#
+# def random_password():
+#     rand_len = randint(SHORTEST, LONGEST)
+#     res = ""
+#     for i in range(rand_len):
+#         rand_char = chr(randint(MIN_ASC, MAX_ASC))
+#         res += rand_char
+#     return res
+#
+#
+# print("Случайный пароль:", random_password())
+
+
+# s = "hello, WORLD! I am learning Python."
+# print(s.capitalize())  # Hello, world! i am learning python.
+# print(s.lower())  # hello, world! i am learning python.
+# print(s.upper())  # HELLO, WORLD! I AM LEARNING PYTHON.
+# print(s.swapcase())  # HELLO, world! i AM LEARNING pYTHON.
+# print(s.title())  # Hello, World! I Am Learning Python.
+

@@ -1,27 +1,20 @@
-import math
-
-
-def args_decor(fn):
-    def wrap(*args, **kwargs):
-        fn(*args, **kwargs)
+def sr_a(fn):
+    def wrap(*f_args):
+        x = fn(*f_args)
+        print('Среднее арифметическое чисел', end=' ')
+        print(*f_args, sep=', ', end=' ')
+        print('=', x / len(f_args))
 
     return wrap
 
 
-@args_decor
-def score(a, b, c, d):
-    print(a + b + c + d)
+@sr_a
+def summa(*args):
+    a = ""
+    for i in args:
+        a += str(i) + ", "
+    print('Сумма чисел:', a[:-2], "=", sum(args))
+    return sum(args)
 
 
-score(2, 3, 3, 4)
-
-
-@args_decor
-def score1(a, b, c, d):
-    let = len(str(score1))
-    print(int(let)//(a + b + c + d))
-
-
-score1(2, 3, 3, 4)
-
-
+summa(2, 3, 3, 4)
