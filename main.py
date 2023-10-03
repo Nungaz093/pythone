@@ -2457,9 +2457,245 @@
 
 
 # s = "hello, WORLD! I am learning Python."
-# print(s.capitalize())  # Hello, world! i am learning python.
-# print(s.lower())  # hello, world! i am learning python.
-# print(s.upper())  # HELLO, WORLD! I AM LEARNING PYTHON.
-# print(s.swapcase())  # HELLO, world! i AM LEARNING pYTHON.
-# print(s.title())  # Hello, World! I Am Learning Python.
+# # print(s.capitalize())  # Hello, world! i am learning python.
+# # print(s.lower())  # hello, world! i am learning python.
+# # print(s.upper())  # HELLO, WORLD! I AM LEARNING PYTHON.
+# # print(s.swapcase())  # HELLO, world! i AM LEARNING pYTHON.
+# # print(s.title())  # Hello, World! I Am Learning Python.
+#
+# # print(s.count('h', 1, -4))  # Считает строковых символов
+# # print(s.find("l", 4, 19))  # (-1 нет совпадений)
+# # print(s.index("Python"))  # Номер строки
+# print(s.find("l"))  # Поиск с лева
+# print(s.rfind("l"))  # Поиск с права
+# print(s.index("l"))
+# print(s.rindex("l"))
 
+
+# text = input("Введите два слова через пробел: ")
+# new_text = text[text.find(' ') + 1:]+' '+text[:text.find(' ')]
+# print(new_text)
+
+# s = "hello, WORLD! I am learning Python."
+# ...
+# print(s.index("I am"))
+# print(s.startswith("I am", 14))
+# print(s.endswith("Python."))
+
+
+# print('abc123'.isalnum())  # цифры и буквы
+# print('ABCabc'.isalpha())  # Буквы верхнем или нижнем регистре
+# print('123'.isdigit())  # Чисто только цифры
+
+# print('abc'.islower())  # Проверка на регистр
+# print('ABC'.isupper())  # Проверка на регистр
+
+# print('py'.center(10))
+# print('py'.center(10, "-"))
+
+
+# print("             py".lstrip())  # Удаляют пробелы с лева
+# print("py             ".rstrip())  # Удаляют пробелы с права
+# print("      py       ".strip())   # Удаляют пробелы с лева и права
+# print('https://www.python.org'.lstrip("/:pths"))
+
+# str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования."
+# print(str1.replace("Nython", "Python"))
+
+
+# s = "-"
+# seq = ("a", "b", "c")
+# print(s.join(seq))
+# print("..".join(['1', '2', '3']))
+# print(":".join("Hello"))
+
+# print('Строка раздельная пробелами'.split())
+
+
+# s = input("ФИО:").split()
+# print(s[0], s[1][0], s[2][0])
+
+# Регулярные выражения
+import re
+
+#
+# s = "Я ищю совпадения в 2023 году. И я их найду в 2 счёта."
+# reg = ' '
+# print(re.findall(reg, s))  # список содержащий все совпадения
+# print(re.search(reg, s))  # место первого совпадения
+#
+# print(re.search(reg, s).span())
+# print(re.search(reg, s).start())
+# print(re.search(reg, s).end())
+# print(re.search(reg, s).group())
+#
+# # print(re.match(reg, s))  # поиск по заданному шаблону в начале строки
+#
+# print(re.split(reg, s))  # сплит возвращяет список строк разбитых по шпблону разделителю
+#
+# print(re.sub(reg, "!", s, 3))  # поиск и замена
+
+# s = "Я ищю совпадения в 2023 году. И я их найду в 2 счёта. 9178 [H^el_lo]"
+# # reg = '[12][0-9][0-9][0-9]'
+# # reg = '[а-яА-яё]'
+# # reg = r'[A-Za-z.\[\]]'
+# reg = r'[^0-9]'
+# # reg = r'\.'
+# print(re.findall(reg, s))
+
+# t = "Час в 24-часовом формате от 00 до 23. 2021-06-15T21:45. Минуты, в диапазоне от 00 до 59. 2021-06-15T01:09."
+# p = r'[0-2][0-9]:[0-5][0-9]'
+# print(re.findall(p, t))
+
+# s = "Я ищю совпадения в 2023 году. И я их найду в 2 счёта. 9178 [H^el_lo]"
+# reg = r'\d+'
+# print(re.findall(reg, s))
+
+
+# d = 'Цифры: 7, +17, -42, 0013, 0.34'
+# print(re.findall(r'[+-]?\d+\.?\d*', d))
+
+
+# s = "09-09-1987 # Дата рождения"
+# print("Дата рождения:", re.sub("#.+", "", s))
+
+# s = "Дата рождения: 09-09-1987"
+# print(re.sub("-", ".", s))
+
+# s = "09-09-1987 # Дата рождения"
+# print("Дата рождения:", re.sub("-", ".", re.sub("#.+", "", s)))
+
+# s = "12 сентября 2023 года"
+# reg = r'\d{2,4}'
+# print(re.findall(reg, s))
+
+# s = '+7 499 456-45-78, +74994564578, 7 (499) 456 4578, 74994564578'
+# reg = r'\+?7\d{10}'
+# print(re.findall(reg, s))
+
+# s = "Я ищю совпадения в 2023 году. И я их найду в 2 счёта."
+# # reg = r'\w+\s\w+'
+# reg = r'\w+\.$'
+# print(re.findall(reg, s))
+
+# def validate_login(name):
+#     return re.findall('^[A-Za-z_-]{3,16}$', name)
+#
+#
+# print(validate_login('Python_master'))
+# print(validate_login('Python_master'))
+
+# print(re.findall(r'\w+', '12 + й'))
+# print(re.findall(r'\w+', '12 + й', flags=re.ASCII))
+# print(re.findall(r'\w+', '12 + й', flags=re.A))
+
+# text = 'hello world'
+# print(re.findall(r'\w\+', text, re.DEBUG))
+
+# s = "Я ищю совпадения в 2023 году. И я их найду в 2 счёта."
+# reg = r'я'
+# print(re.findall(reg, s, re.IGNORECASE))
+# print(re.findall(reg, s, re.I))
+
+# text = """
+# one
+# two
+# """
+
+# print(re.findall(r'one.\w+', text))
+# print(re.findall(r'one.\w+', text, re.DOTALL))
+# print(re.findall(r'one.\w+', text, re.S))
+
+# print(re.findall(r'one$', text))
+# print(re.findall(r'one$', text, re.MULTILINE))
+# print(re.findall(r'one$', text, re.M))
+
+# print(re.findall("""
+# [a-z.-]+  # part 1
+# @         # @
+# [a-z.-]+  # part 2
+# """, 'test@mail.ru', re.VERBOSE))
+
+# text = """Python
+# python
+# PYTHON"""
+# reg = "(?im)^python"
+# print(re.findall(reg, text))
+
+# text = "<body>Пример жадного соответствия регулярных выражений</body>"
+# print(re.findall("<.*?>", text))
+# *?, +?, ??
+# {m, n}?, {n}?, {m,}?
+
+
+# s = "<p>Изображение <img alt='картинка' src='bg.jpg'>- фон страницы</p>"
+# # reg = r'<img.*?>'
+# reg = r'<img\s+[^>]*src\s*=\s*[^>]+>'
+# print(re.findall(reg, s))
+
+# s = "Петр, Ольга и Виталий отлично учатся!"
+# reg = "Петр|Ольга|Виталий|Ирина"
+# print(re.findall(reg, s))
+
+# s = "int = 4, float = 4.0, double = 8.0f"
+# # reg = r'\w+\s*=\s*\d[.\w]*'
+# # reg = r'(?:int|double)\s*=\s*\d[.\w]*'
+# reg = r'((int|double)\s*=\s*\d[.\w]*)'
+# print(re.findall(reg, s))
+# (?:)-Делает круглые скобки не сохраняющие
+# ()- сохраняющие скобки
+
+# s = "5 + 7*2 - 4"
+# reg = r"\s*([+*-])\s*"
+# print(re.split(reg, s))
+
+# s = '28-08-2021'
+# reg = r'(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(20[0-9][0-9])'
+# print(re.findall(reg, s))
+
+# s = "Я ищю совпадения в 2023 году. И я их найду в 2 счёта."
+# reg = r'(\d+)\s(\D+)'
+# print(re.findall(reg, s))
+# print(re.search(reg, s))
+# m = re.search(reg, s)
+# print(m[1])
+# print(m[2])
+# print(re.search(reg, s).group(1))
+
+# text = """
+# Самара
+# Москва
+# Тверь
+# Уфа
+# Казань
+# """
+# count = 0
+#
+#
+# def repl_find(m):
+#     global count
+#     count += 1
+#     return f'<option value="{count}">{m.group(1)}</option>\n'
+#
+#
+# print("<select>")
+# print(re.sub(r"\s*(\w+)\s*", repl_find, text))
+# print("<select>")
+
+
+# s = "<p>Изображение <img alt='картинка' src='bg.jpg'>- фон страницы</p>"
+# # reg = r'<img\s+[^>]*src\s*=\s*([\'"])(.+?)\1>'
+# reg = r'<img\s+[^>]*src\s*=\s*(?P<q>[\'"])(.+?)(?P=q)'
+# print(re.findall(reg, s))
+#
+# # (?P<name>)  (?P=name)
+
+# s = "Самалет прилетает 10/23/2023. Будем рады вас видеть после 10/24/2023."
+# reg = r'(\d{2})/(\d{2})/(\d{4})'
+#
+# print(re.sub(reg, r'\2.\1.\3', s))
+
+# s = "yandex.com and yandex.ru"
+# reg = r'(([a-z0-9-]{2,}\.)+[a-z]{2,4})'
+#
+# print(re.sub(reg, r'http://\1', s))
