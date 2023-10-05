@@ -2516,7 +2516,7 @@
 # print(s[0], s[1][0], s[2][0])
 
 # Регулярные выражения
-import re
+# import re
 
 #
 # s = "Я ищю совпадения в 2023 году. И я их найду в 2 счёта."
@@ -2699,3 +2699,203 @@ import re
 # reg = r'(([a-z0-9-]{2,}\.)+[a-z]{2,4})'
 #
 # print(re.sub(reg, r'http://\1', s))
+
+
+#  05/10/2023
+
+# Файлы
+
+# f = open("texttext.txt")
+# print(f)
+# print(*f)
+# print(f.mode)
+# print(f.name)
+# print(f.encoding)
+# f.close()
+# print(f.closed)
+
+
+# f = open(r"D:\pyth\texttext.txt")
+# f = open(r"D:\\pyth\\texttext.txt")
+# f = open("texttext.txt")
+# print(f.read(3))
+# print(f.read())
+# f.close()
+
+# f = open("one.txt", 'r')
+# print(f.readline())
+# print(f.readline())
+# f.close()
+
+# f = open("one.txt", 'r')
+# print(f.readlines())
+# f.close()
+
+# f = open("one.txt", 'r')
+# for line in f:
+#     print(line, end="")
+# f.close()
+
+# f = open("one.txt", 'r')
+# for line in f:
+#     print(line, end="")
+#     count += 1
+#     # print(f.readlines())
+#     # print(len(f.readline()))
+# f.close()
+# print(count)
+
+# f = open('xyz.txt', 'w')
+# f.write("Hello \nWorld")
+# f.close()
+#
+# f = open('xyz.txt', 'a')
+# print(f.write("\nNew Text"))
+# f.close()
+
+# f = open('xyz.txt', 'a')
+# line = ['\nThis is line 1', '\nThis is line 2']
+# f.writelines(line)
+# f.close()
+
+
+# f = open('xyz.txt', 'w')
+# lst = [str(i) for i in range(1, 20)]
+# print(lst)  # '[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]'
+# # t = "\t".join(map(str, lst))
+# # print(t)
+# # f.write(t)
+# for index in lst:
+#     f.write(index + '\t')
+# f.close()
+
+# f = open('zadacha.txt', 'w')
+# f.write("Заменить строки с текстом файле;\nизменить строку в списке;\nзаписать список файл;\n")
+# f.close()
+#
+# f = open('zadacha.txt', 'r')
+# read_file = f.readlines()
+# print(read_file)
+# read_file[1] = "Hello World\n"
+# f.close()
+#
+# f = open('zadacha.txt', 'w')
+# f.writelines(read_file)
+# f.close()
+
+# f = open('zadacha.txt', 'w')
+# f.write("Заменить строки с текстом файле;\nизменить строку в списке;\nзаписать список файл;\n")
+# f.close()
+
+
+# pos = int(input('del = '))
+# f = open('zadacha.txt', 'r')
+# l = f.readlines()
+# if (pos >= 0) and (pos < len(l)):
+#     i = pos
+#     while i < len(l) - 1:
+#         l[i] = l[i + 1]
+#         i = i + 1
+#     l = l[:1]
+# f.close()
+#
+# f = open('zadacha.txt', 'w')
+# for line in l:
+#     f.write(line)
+#
+# f.close()
+
+# f = open('zadacha.txt', 'r')
+# int_put = int(input("Числа: "))
+# read_file = f.readlines()
+# if 0 <= int_put < len(read_file):
+#     del read_file[int_put]
+# else:
+#     print("Индекс введен не верно!")
+# print(read_file)
+# f.close()
+
+# f = open("texttext.txt", 'r')
+# print(f.read(3))
+# print(f.tell())  # Позиция условного курсора
+# print(f.seek(1))
+# print(f.read())
+# f.close()
+
+# f = open("texttext.txt", 'r+')
+# print(f.write('I am learning Python'))  # 20
+# print(f.seek(3))  # 3
+# print(f.write("-new string-"))  # 12
+# print(f.tell())  # 15
+# f.close()
+
+# with open('texttext.txt', 'w+') as f:
+#     print(f.write('0123456789'))
+#
+# with open('texttext.txt', 'r') as f:
+#     for line in f:
+#         print(line)
+
+
+# file = "res1.txt"
+# lst = [4.5, 2.8, 3.9, 1.0, 0.3, 4.33, 7.777]
+#
+#
+# def get_line(lt):
+#     return " ".join(map(str, lt))
+#
+#
+# with open(file, 'w') as f:
+#     f.write(get_line(lst))
+#
+# print("Done!")
+#
+# with open(file, 'r') as f:
+#     nums = f.read()
+#
+# print(nums)
+#
+# nums_list = list(map(float, nums.split()))
+# print(nums_list)
+# print(sum(nums_list))
+# print(len(nums_list))
+# print(sum(nums_list) / len(nums_list))
+
+
+# def long_words(file):
+#     with open(file, 'r', encoding='utf-8') as text:
+#         w = text.read().split()
+#         print(w)
+#         max_length = len(max(w, key=len))
+#         print(max_length)
+#         res = [word for word in w if len(word) == max_length]
+#         if len(res) == 1:
+#             return res[0]
+#         return res
+#
+#
+# print(long_words("texttext.txt"))
+
+
+# read_file = "one.txt"
+# write_file = "two.txt"
+# therd_file = "threez.txt"
+#
+# text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\nСтрока №8\nСтрока №9\nСтрока №10\n"
+#   with open("one.txt", 'w') as f:
+#      f.write(text)
+#
+# with open(read_file, 'r') as fr, open(write_file, 'w') as fw:
+#     for line in fr:
+#         line = line. replace("Строка", "Линия -")
+#         fw.write(line)
+
+read_file = "one.txt"
+write_file = "two.txt"
+therd_file = "threez.txt"
+
+with open(read_file, 'r') as f1, open(write_file, 'r') as f2, open(therd_file, 'w') as f3:
+    file_1 = f1.readlines()
+    file_2 = f2.readlines()
+    f4 = file_1 + file_2
+    f3.writelines(f4)
