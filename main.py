@@ -2881,7 +2881,7 @@
 # write_file = "two.txt"
 # therd_file = "threez.txt"
 #
-# text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\nСтрока №8\nСтрока №9\nСтрока №10\n"
+# text = "Строка№1\nСтрока№2\nСтрока№3\nСтрока№4\nСтрока№5\nСтрока№6\nСтрока№7\nСтрока№8\nСтрока№9\nСтрока№10\n"
 #   with open("one.txt", 'w') as f:
 #      f.write(text)
 #
@@ -2890,12 +2890,328 @@
 #         line = line. replace("Строка", "Линия -")
 #         fw.write(line)
 
-read_file = "one.txt"
-write_file = "two.txt"
-therd_file = "threez.txt"
+# read_file = "one.txt"
+# write_file = "two.txt"
+# therd_file = "threez.txt"
+#
+# with open(read_file, 'r') as f1, open(write_file, 'r') as f2, open(therd_file, 'w') as f3:
+#     file_1 = f1.readlines()
+#     file_2 = f2.readlines()
+#     f4 = file_1 + file_2
+#     f3.writelines(f4)
 
-with open(read_file, 'r') as f1, open(write_file, 'r') as f2, open(therd_file, 'w') as f3:
-    file_1 = f1.readlines()
-    file_2 = f2.readlines()
-    f4 = file_1 + file_2
-    f3.writelines(f4)
+
+# Модуль OS и OS.PATH
+
+# import os
+# import os.path
+
+
+# print(os.path.split(r"D:\pyth\nested\nested2\text.txt"))
+
+# print(os.getcwd())  # возвращает путь к текущей директории
+# print(os.listdir())  # список файлов и директории
+# print(os.listdir(".."))
+
+# os.mkdir("folder_2")  # создание директории(папки)
+# os.mkdir("nested1/nested2/nested3")  # Создаст не только конечную директорию, но и конечную
+
+# os.rmdir("folder")  # удаляем только пустую папку
+
+# os.rename('xyz.txt', 'numbz.txt')  # переименовывает название файла или папки
+# os.rename('numbz.txt', 'folder/numbz.txt')  # перемещение файла в папку
+
+# os.renames('', '')  # перемещяет и создает папку
+
+# os.remove('')  # удаление файла
+
+# for root, dirs, files in os.walk("nested", topdown=False):
+#     print("Root:", root)
+#     print("Subdirs:", dirs)
+#     print("Files:", files)
+#     print()
+
+# def remove_enpty_dirs(root_tree):
+#     print(f"Удаление пустых директорий в ветви {root_tree}")
+#     print('-' * 50)
+#     for root, dirs, files in os.walk(root_tree):
+#         if not os.listdir(root):
+#             os.rmdir(root)
+#             print(f"Директория с заданным название root удалена.")
+#
+#     print('-' * 50)
+#
+#
+# remove_enpty_dirs("nested")
+
+# import os
+
+
+# print(os.path.split(r"D:\pyth\nested\nested2\text.txt"))
+#
+# print(os.path.dirname(r"D:\pyth\nested\nested2\text.txt"))
+# print(os.path.basename(r"D:\pyth\nested\nested2\text.txt"))
+#
+# print(os.path.join(r"D:\pyth", "files", "folder", "dir", "two.txt"))
+
+# import os
+#
+# # dirs = [r'Work\F1', r'Work\F2\F21']
+# # for d in dirs:
+# #     os.makedirs(d)
+#
+# files = {
+#     'Work': ['w.txt'],
+#     r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
+#     r'Work\F2\F21': ['f211.txt', 'f212.txt']
+# }
+#
+# for d, file in files.items():
+#     for f in file:
+#         file_path = os.path.join(d, f)
+#         open(file_path, 'w').close()
+#
+# file_with_text = [r'Work\w.txt', r'Work\F1\f12.txt', r'Work\F2\F21\f211.txt', r'Work\F2\F21\f212.txt']
+#
+# for file in file_with_text:
+#     with open(file, 'w') as f:
+#         f.write(f"some sample text for {file} file")
+#
+#
+# def print_tree(root, topdown):
+#     print(f"Обход {root} {'сверху вниз' if topdown else 'снизу вверх'}")
+#     for root, dirs, fls in os.walk(root, topdown):
+#         print(root)
+#         print(dirs)
+#         print(fls)
+#     print("-" * 50)
+
+
+# print_tree("Work", topdown=False)
+# print_tree("Work", topdown=True)
+
+
+# # Work\w.txt
+# # Work\F1\f11.txt
+# # Work\F1\f12.txt
+# # Work\F1\f13.txt
+# # Work\F2\F21\f211.txt
+# # Work\F2\F21\f212.txt
+
+
+# import os
+
+
+# print(os.path.exists(
+#  r'D:\pyth\nested\nested2\text.txt'))  # Возвращается True, если path указывает на сущ путь в файловой системе
+# print(os.path.isfile(r'D:\pyth\nested\nested2\text.txt'))  # проверка на наличие по заданному пути файла
+# print(os.path.isdir(r'D:\pyth\nested\nested2'))  # проверка на наличие по заданному пути папки
+
+# path = 'main.py'
+# print(os.path.getsize(path))  # 67164 - В байтах
+# print(os.path.getsize(path) / 1024)
+# print(os.path.getatime(path))  # последний доступ к файлу
+# print(os.path.getmtime(path))  # последнее изменение файла(windows) или  время последнего изм(Unix)
+# print(os.path.getctime(path))  # время последнего изм в сек
+#
+# c = os.path.getmtime(path)
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getsize(path))))
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getsize(path))))
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getsize(path))))
+
+# file_path = 'nested/nested2/res1.txt'
+# if os.path.exists(file_path):
+#     dirs, name = os.path.split(file_path)
+#     atime = os.path.getatime(file_path)
+#     print(f"{name} ({dirs}) время последнего доступа к файлу {atime}")
+# else:
+#     print(f"Файл {file_path} не существует")
+
+
+# Рекурсия
+
+# def elevator(n):
+#     if n == 0:
+#         print("Вы в подвале")
+#         return
+#     print("==>", n)
+#     elevator(n - 1)
+#     print(n, end=" ")
+#
+#
+# n1 = int(input("На каком вы этаже: "))
+# elevator(n1)
+
+# def sum_list(lst):
+#     res = 0
+#     for i in lst:
+#         res += i
+#     return res
+
+# def sum_list(lst):
+#     if len(lst) == 1:
+#         return lst[0]
+#     else:
+#         return lst[0] + sum_list(lst[1:])
+#
+#
+# print(sum_list([1, 3, 5, 7, 9]))
+
+
+# def to_str(n, base):
+#     convert = "0123456789ABCDEF"
+#     if n < base:
+#         return convert[n]
+#     else:
+#         return to_str(n // base, base) + convert[n % base]
+#
+#
+# print(to_str(255, 2))
+
+# 12.10.23
+# РАЗОБРАТЬСЯ ДОМА С 1-ым ПРИМЕРОМ!!!!
+# names = ["Adam", ["Bob", ["Chet", "Cat"], "Bard", "Bert"], "Alex", ["Bea", "Bill"], "Ann"]
+# print(names)
+#
+#
+# def count_items(item_list):
+#     count = 0
+#     for item in item_list:
+#         if isinstance(item, list):
+#             count += count_items(item)
+#         else:
+#             count += 1
+#     return count
+#
+#
+# print(count_items(names))
+# # print(len(names))
+# # print(names[1])
+# # print(isinstance(names[1], list))
+# # print(names[1][1])
+
+
+# def remove(text):
+#     if not text:
+#         return ""
+#     if text[0] == "\t" or text[0] == " ":
+#         return remove(text[1:])
+#     else:
+#         return text[0] + remove(text[1:])
+#
+#
+# print(remove(" HELLO\tWORLD "))
+
+
+# class Point:
+#     x = 1
+#     y = 2
+#
+#
+# p1 = Point()
+# print(p1.x)
+# print(p1.y)
+#
+# p1.x = 5
+# p1.y = 7
+# p2 = Point()
+# print(p2.x)
+# print(p2.y)
+# print(p1.x)
+# print(p1.y)
+#
+# print(id(Point))
+# print(id(p1))
+# print(id(p2))
+
+
+# class Point:
+#     x = 1
+#     y = 2
+#
+#     def set_coord(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#
+# p1 = Point()
+# p1.set_coord(5, 10)
+# # Point.set_coord(p1, 5, 10)
+# print(p1.__dict__)
+#
+# p2 = Point()
+# p2.set_coord(3, 7)
+# print(p2.__dict__)
+
+
+# class Human:
+#     name = "name"
+#     birthday = "00.00.0000"
+#     phone = "00-00-00"
+#     country = "country"
+#     city = "city"
+#     address = "street, house"
+#
+#     def print_info(self):
+#         print(" Персональные данные ".center(40, *"*"))
+#         print(f"Имя: {self.name}\nДата рождения: {self.birthday}\nНомер телефона: {self.phone}\nСтрана: {self.country}"
+#               f"\nГород: {self.city}\nАдрес: {self.address}")
+#         print("=" * 40)
+#
+#     def input_info(self, first_name, birthday, phone, country, city, addres):
+#         self.name = first_name
+#         self.address = addres
+#         self.birthday = birthday
+#         self.phone = phone
+#         self.city = city
+#         self.country = country
+#
+#     def set_phone(self, phone):  # устанавливаем значение
+#         self.phone = phone
+#
+#     def get_phone(self):  # получаем значение
+#         return self.phone
+#
+#     def set_name(self, name):
+#         self.name = name
+#
+#     def get_name(self):
+#         return self.name
+#
+#
+# h1 = Human()
+# h1.print_info()
+# h1.input_info("Юля", "23.05.1986", "45-46-98", "Россия", "Москва", "Чистопрудный бульвар, 1A")
+# h1.print_info()
+# h1.set_phone("55-99-11")
+# h1.print_info()
+# print(h1.get_phone())
+# h1.set_name("Валерия")
+# print(h1.get_name())
+
+
+class Person:
+    skill = 10
+
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+
+    def __del__(self):
+        print("Удаление экземпляра класса")
+
+    def print_info(self, ):
+        print("Данные сотрудник:", self.name, self.surname)
+
+    def add_skill(self, k):
+        self.skill += k
+        print("Квалификация сотрудника:", self.skill, "\n")
+
+
+p1 = Person("Виктор", "Резник")
+p1.print_info()
+p1.add_skill(3)
+
+p2 = Person("Анна", "Долгих")
+p2.print_info()
+p2.add_skill(2)
