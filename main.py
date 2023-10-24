@@ -3390,3 +3390,476 @@
 # print(f"{weight.x} кг => {weight.to_pounds()} фунтов")
 # weight.x = 41
 # print(f"{weight.x} кг => {weight.to_pounds()} фунтов")
+
+
+# 19.10.2023
+
+# class Point:
+#     __count = 0
+#
+#     def __init__(self, x=0, y=0):
+#         self.x = x
+#         self.y = y
+#         Point.__count += 1
+#
+#     # @staticmethod
+#     def get_count():
+#         return Point.__count
+#
+#     get_count = staticmethod(get_count)
+#
+#
+# p1 = Point()
+# p2 = Point()
+# p3 = Point()
+# print(Point.get_count())
+
+
+# class Change:
+#     @staticmethod
+#     def inc(x):
+#         return x + 1
+#
+#     @staticmethod
+#     def dec(x):
+#         return x - 1
+#
+#
+# print(Change.inc(10), Change.dec(10))
+
+
+# class Number:
+#     @staticmethod
+#     def max(a, b, c, d):
+#         mx = a
+#         if b > mx:
+#             mx = b
+#         if c > mx:
+#             mx = c
+#         if d > mx:
+#             mx = d
+#         return mx
+#
+#     @staticmethod
+#     def min(*args):
+#         mn = args[0]
+#         for i in args:
+#             if i < mn:
+#                 mn = i
+#         return mn
+#
+#     @staticmethod
+#     def average(a, b, c, d):
+#         return (a + b + c + d) / 4
+#
+#     @staticmethod
+#     def factorial(n):
+#         fact = 1
+#         for i in range(1, n + 1):
+#             fact *= i
+#         return fact
+#
+#
+# print("Максимальное число:", Number.max(3, 5, 7, 9))
+# print("Минимальное число:", Number.min(3, 5, 7, 9))
+# print("Средне арифметическое число:", Number.average(3, 5, 7, 9))
+# print("Факториал числа:", Number.factorial(5))
+
+# class Date:
+#     def __init__(self, day=0, month=0, year=0):
+#         self.day = day
+#         self.month = month
+#         self.year = year
+#
+#     @classmethod
+#     def from_string(cls, string_data):
+#         day, month, year = map(int, string_data.split('.'))
+#         date1 = cls(day, month, year)
+#         return date1
+#
+#     @staticmethod
+#     def is_date_valid(date_as_string):
+#         if date_as_string.count(".") == 2:
+#             day, month, year = map(int, date_as_string.split('.'))
+#             return day <= 31 and month <= 12 and year <= 3999
+#
+#     def string_to_db(self):
+#         return f"{self.year}-{self.month}-{self.day}"
+#
+#
+# # date2 = Date.from_string('23.10.2023')
+# # print(date2.string_to_db())
+# #
+# # date3 = Date.from_string('27.12.2024')
+# # print(date3.string_to_db())
+# dates = [
+#     '30.12.2023',
+#     '30-12-2020',
+#     '01.01.2021',
+#     '12.31.2023'
+# ]
+#
+# for string_date in dates:
+#     if Date.is_date_valid(string_date):
+#         date = Date.from_string(string_date)
+#         date_db = date.string_to_db()
+#         print(date_db)
+#     else:
+#         print(f"Не правильная дата или формат строки с датой")
+
+
+# class Account:
+#     rate_usd = 0.013
+#     rate_eu = 0.011
+#     suffix = 'RUB'
+#     suffix_usd = 'USD'
+#     suffix_eu = 'EUR'
+#
+#     def __init__(self, surname, number, procent, summarub):
+#         self.surname = surname
+#         self.number = number
+#         self.procent = procent
+#         self.summarub = summarub
+#         print(f"Счет №{self.number} Принадлежащий {self.surname} был открыт.")
+#         print("*" * 50)
+#
+#     def __del__(self):
+#         print("*" * 50)
+#         print(f"Счет №{self.number} Принадлежащий {self.surname} был закрыт.")
+#
+#     @staticmethod
+#     def convert(summarub, rate):
+#         return summarub * rate
+#
+#     @classmethod
+#     def set_usr_rate(cls, rate):
+#         cls.rate_usd = rate
+#
+#     @classmethod
+#     def set_uer_rate(cls, rate):
+#         cls.rate_eu = rate
+#
+#     def convert_to_usd(self):
+#         usd_val = Account.convert(self.summarub, Account.rate_usd)
+#         print(f'Состояние счета: {usd_val} {Account.suffix_usd}')
+#
+#     def convert_to_eu(self):
+#         eu_val = Account.convert(self.summarub, Account.rate_eu)
+#         print(f'Состояние счета: {eu_val} {Account.suffix_eu}')
+#
+#     def edit_owner(self, surname):
+#         self.surname = surname
+#
+#     def add_percent(self):
+#         self.summarub += self.summarub * self.procent
+#         print("Проценты были успешно начислены!")
+#         self.print_balans()
+#
+#     def withdraw_money(self, val):
+#         if val > self.summarub:
+#             print(f"К сожалению у вас нет {val} {Account.suffix}")
+#         else:
+#             self.summarub -= val
+#             print(f"{val} {Account.suffix} было успешно снято!")
+#         self.print_balans()
+#
+#     def add_money(self, val):
+#         self.summarub += val
+#         print(f"{val} {Account.suffix} было успешно добавлено!")
+#         self.print_balans()
+#
+#     def print_balans(self):
+#         print(f"Текущий баланс {self.summarub} {Account.suffix}")
+#
+#     def print_info(self):
+#         print(f"Информация о счете:")
+#         print("-" * 20)
+#         print(f"№{self.number}")
+#         print(f"Владелец:{self.surname}")
+#         self.print_balans()
+#         print(f"Проценты: {self.procent:.0%}")
+#         print("-" * 20)
+#
+#
+# acc = Account("Долгих", '12345', 0.03, 1000)
+# acc.print_info()
+# acc.convert_to_usd()
+# acc.convert_to_eu()
+# print()
+# Account.set_usr_rate(2)
+# acc.convert_to_usd()
+# Account.set_uer_rate(3)
+# acc.convert_to_eu()
+# print()
+# acc.edit_owner("Дюма")
+# acc.print_info()
+# acc.add_percent()
+# print()
+# acc.withdraw_money(3000)
+# print()
+# acc.withdraw_money(100)
+# print()
+# acc.add_money(5000)
+# acc.withdraw_money(3000)
+# print()
+
+
+# class Account:
+#     rate_usd = 0.013
+#     rate_eu = 0.011
+#     suffix = 'RUB'
+#     suffix_usd = 'USD'
+#     suffix_eu = 'EUR'
+#
+#     def __init__(self, surname, number, procent, summarub):
+#         self.surname = surname
+#         self.__number = number
+#         self.procent = procent
+#         self.summarub = summarub
+#         print(f"Счет №{self.number} Принадлежащий {self.surname} был открыт.")
+#         print("*" * 50)
+#
+#     def __del__(self):
+#         print("*" * 50)
+#         print(f"Счет №{self.number} Принадлежащий {self.surname} был закрыт.")
+#
+#     @property
+#     def number(self):
+#         return self.__number
+#
+#     @number.setter
+#     def number(self, val):
+#         self.__number = val
+#
+#     @staticmethod
+#     def convert(summarub, rate):
+#         return summarub * rate
+#
+#     @classmethod
+#     def set_usr_rate(cls, rate):
+#         cls.rate_usd = rate
+#
+#     @classmethod
+#     def set_uer_rate(cls, rate):
+#         cls.rate_eu = rate
+#
+#     def convert_to_usd(self):
+#         usd_val = Account.convert(self.summarub, Account.rate_usd)
+#         print(f'Состояние счета: {usd_val} {Account.suffix_usd}')
+#
+#     def convert_to_eu(self):
+#         eu_val = Account.convert(self.summarub, Account.rate_eu)
+#         print(f'Состояние счета: {eu_val} {Account.suffix_eu}')
+#
+#     def edit_owner(self, surname):
+#         self.surname = surname
+#
+#     def add_percent(self):
+#         self.summarub += self.summarub * self.procent
+#         print("Проценты были успешно начислены!")
+#         self.print_balans()
+#
+#     def withdraw_money(self, val):
+#         if val > self.summarub:
+#             print(f"К сожалению у вас нет {val} {Account.suffix}")
+#         else:
+#             self.summarub -= val
+#             print(f"{val} {Account.suffix} было успешно снято!")
+#         self.print_balans()
+#
+#     def add_money(self, val):
+#         self.summarub += val
+#         print(f"{val} {Account.suffix} было успешно добавлено!")
+#         self.print_balans()
+#
+#     def print_balans(self):
+#         print(f"Текущий баланс {self.summarub} {Account.suffix}")
+#
+#     def print_info(self):
+#         print(f"Информация о счете:")
+#         print("-" * 20)
+#         print(f"№{self.number}")
+#         print(f"Владелец:{self.surname}")
+#         self.print_balans()
+#         print(f"Проценты: {self.procent:.0%}")
+#         print("-" * 20)
+#
+#
+# acc = Account("Долгих", '12345', 0.03, 1000)
+# acc.print_info()
+# acc.convert_to_usd()
+# acc.convert_to_eu()
+# print()
+# Account.set_usr_rate(2)
+# acc.convert_to_usd()
+# Account.set_uer_rate(3)
+# acc.convert_to_eu()
+# print()
+# acc.edit_owner("Дюма")
+# acc.print_info()
+# acc.add_percent()
+# print()
+# acc.withdraw_money(3000)
+# print()
+# acc.withdraw_money(100)
+# print()
+# acc.add_money(5000)
+# acc.withdraw_money(3000)
+# print()
+
+# import re
+#
+#
+# class UserData:
+#     def __init__(self, fio, old, pa, weight):
+#
+#         self.fio = fio
+#         self.old = old
+#         self.password = pa
+#         self.weight = weight
+#
+#     @staticmethod
+#     def verify_fio(fio):
+#         if not isinstance(fio, str):
+#             raise TypeError("ФИО должен быть строкой")
+#         f = fio.split()
+#         # print(f)
+#         if len(f) != 3:
+#             raise TypeError("Не верный формат ФИО")
+#         letters = "".join(re.findall("[a-zа-яё-]", fio, re.IGNORECASE))
+#         for s in f:
+#             # print(s.strip(letters))
+#             if len(s.strip(letters)) != 0:
+#                 raise TypeError("Можно использовать только буквы и дефис")
+#
+#     @staticmethod
+#     def verify_old(old):
+#         if not isinstance(old, int) or old < 14 or old > 120:
+#             raise TypeError("Возраст должен быть числом в диапазоне от 14 до 120лет")
+#
+#     @staticmethod
+#     def verify_weight(w):
+#         if not isinstance(w, float) or w < 20:
+#             raise TypeError("Вес должен быть вещественным числом от 20 кг и выше")
+#
+#     @staticmethod
+#     def verify_pa(pa):
+#         if not isinstance(pa, str):
+#             raise TypeError("Паспорт должен быть строкой")
+#         s = pa.split()
+#         if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
+#             raise TypeError("Не верный формат паспорта")
+#         for p in s:
+#             if not p.isdigit():
+#                 raise TypeError("Серия и номер паспорта должны быть числами")
+#
+#     @property
+#     def fio(self):
+#         return self.__fio
+#
+#     @fio.setter
+#     def fio(self, fio):
+#         self.verify_fio(fio)
+#         self.__fio = fio
+#
+#     @property
+#     def old(self):
+#         return self.__old
+#
+#     @old.setter
+#     def old(self, val):
+#         self.verify_old(val)
+#         self.__old = val
+#
+#     @property
+#     def password(self):
+#         return self.__password
+#
+#     @password.setter
+#     def password(self, pa):
+#         self.verify_pa(pa)
+#         self.__password = pa
+#
+#     @property
+#     def weight(self):
+#         return self.__weight
+#
+#     @weight.setter
+#     def weight(self, w):
+#         self.__weight = w
+#
+#
+# p1 = UserData("Волков Игорь Николаевич", 26, "1234 567890", 80.8)
+# p1.fio = "Рыцарев Игорь Николаевич"
+# print(p1.fio)
+# print(p1.__dict__)
+
+
+#  НАСЛЕДОВАНИЕ
+
+# class Point:
+#     """Точка в двухмерном пространстве"""
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#
+# print(issubclass(Point, object))
+# print(Point.__dict__)
+
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#     def __str__(self):
+#         return f"({self.x}, {self.y})"
+#
+#
+# class Prop:
+#     def __init__(self, sp: Point, ep: Point, color: str = "red", width: int = 1):
+#         self._sp = sp
+#         self._ep = ep
+#         self._color = color
+#         self.__width = width
+#
+#     def get_width(self):
+#         return self.__width
+#
+#
+# class Line(Prop):
+#     def __init__(self, *args):
+#         print("Переопределенный инициатор Line")
+#         # Prop.__init__(self, *args)
+#         super().__init__(*args)
+#
+#     def draw_line(self):
+#         print(f"Рисованный прямоугольник: {self._sp}, {self._ep}, {self._color}, {self.get_width()}")
+#
+#
+# class Rect(Prop):
+#     def draw_rect(self):
+#         print(f"Рисованный прямоугольник: {self._sp}, {self._ep}, {self._color}, {self.get_width()}")
+#
+#
+# line = Line(Point(1, 2), Point(10, 20))
+# # line.draw_line()
+# #
+# # rect = Rect(Point(30, 40), Point(70, 80))
+# # rect.draw_rect()
+
+
+# class Figure:
+#     ...
+#
+#
+# # родительский класс
+# # в инициализаторе __color
+#
+# class Rectangle:
+#     ...
+# # Дочерний класс
+#
+# # Создать метод площади нахождения фигуры
+# # будет проверка на ввод отрицательных значений
