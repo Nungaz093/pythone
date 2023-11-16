@@ -5362,7 +5362,7 @@
 # loads() - считывает данные из строки
 
 
-import pickle
+# import pickle
 
 #
 # file_name = "basket.txt"
@@ -5428,7 +5428,7 @@ import pickle
 
 
 # 14.10.23
-import json
+# import json
 
 # data = {
 #     'name': 'Olga',
@@ -5461,48 +5461,48 @@ import json
 # print(json.dumps(x, ensure_ascii=False))
 
 # Дома
-from random import choice
-
-
-def gen_person():
-    key = ''
-    name = ''
-    tel = ''
-
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
-    nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-
-    while len(key) != 8:
-        key += choice(nums)
-
-    while len(name) != 7:
-        name += choice(letters)
-    # print(name)
-
-    while len(tel) != 10:
-        tel += choice(nums)
-    # print(tel)
-
-    person = {key: {
-        'name': name,
-        'tel': tel
-    }}
-
-    return person
-
-
-def write_json(person_dict):
-    try:
-        data = json.load(open("persons_json"))
-    except FileNotFoundError:
-        data = []
-    data.append(person_dict)
-    with open('persons_json', 'w') as f:
-        json.dump(data, f, indent=2)
-
-
-for i in range(5):
-    write_json(gen_person())
+# from random import choice
+#
+#
+# def gen_person():
+#     key = ''
+#     name = ''
+#     tel = ''
+#
+#     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+#     nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+#
+#     while len(key) != 8:
+#         key += choice(nums)
+#
+#     while len(name) != 7:
+#         name += choice(letters)
+#     # print(name)
+#
+#     while len(tel) != 10:
+#         tel += choice(nums)
+#     # print(tel)
+#
+#     person = {key: {
+#         'name': name,
+#         'tel': tel
+#     }}
+#
+#     return person
+#
+#
+# def write_json(person_dict):
+#     try:
+#         data = json.load(open("persons_json"))
+#     except FileNotFoundError:
+#         data = []
+#     data.append(person_dict)
+#     with open('persons_json', 'w') as f:
+#         json.dump(data, f, indent=2)
+#
+#
+# for i in range(5):
+#     write_json(gen_person())
 # Дома
 
 
@@ -5610,3 +5610,156 @@ for i in range(5):
 # file = "group2.json"
 # my_group2.dump_group(file)
 # my_group2.upload_group(file)
+
+
+# 16.11.23
+
+# Парсинг
+
+
+import requests
+# import json
+#
+# response = requests.get("https://jsonplaceholder.typicode.com/todos")
+# todos = json.loads(response.text)
+# # print(todos)
+# # for i in todos:
+# #     print(i)
+#
+# todos_by_user = {}
+#
+# for i in todos:
+#     if i["completed"]:
+#         try:
+#             todos_by_user[i["userId"]] += 1
+#         except KeyError:
+#             todos_by_user[i["userId"]] = 1
+# print(todos_by_user)
+#
+# top_user = sorted(todos_by_user.items(), key=lambda x: x[1], reverse=True)
+# print(top_user)
+#
+# max_complete = top_user[0][1]
+# print(max_complete)
+#
+# users = []
+# for user, num_complete in top_user:
+#     if num_complete < max_complete:
+#         break
+#     users.append(str(user))
+# print(users)
+#
+# max_users = " and ".join(users)
+# print(max_users)
+#
+# s = "s" if len(users) > 1 else ""
+#
+# print(f"User{s} {max_users} completed {max_complete} TODOS")
+#
+#
+# def keep(td):
+#     is_complete = td["completed"]
+#     has_max_count = str(td["userId"]) in users
+#     return is_complete and has_max_count
+#
+#
+# with open("filter_max_completed.json", "w") as f:
+#     filter_todos = list(filter(keep, todos))
+#     json.dump(filter_todos, f, indent=2)
+
+
+# CSV (Coma Separated Values)
+
+
+import csv
+
+#
+# with open("data.csv") as r_file:
+#     file_reader = csv.DictReader(r_file)
+#     count = 0
+#     for row in file_reader:
+#         print(row)
+#         if count == 0:
+#             print(f"Файл содержит столбцы: {', '.join(row)}")
+#
+#         print(f"\t{row[0]} - {row[1]} - {row[2]}")
+#         count += 1
+#     print(f"Всего в файле {count + 1} строки")
+
+# with open("student.csv", "w") as f:
+#     writer = csv.writer(f, delimiter=";", lineterminator="\r")
+#     writer.writerow(["Имя", "Класс", "Возраст"])
+#     writer.writerow(["Женя", "9", "15"])
+#     writer.writerow(["Саша", "5", "12"])
+#     writer.writerow(["Маша", "11", "18"])
+
+# data = [['hostname', 'vendor', 'model', 'location'],
+#         ['sw1', 'Cisco', '3750', 'London, Best str'],
+#         ['sw2', 'Cisco', '3850', 'Liverpool, Better str'],
+#         ['sw3', 'Cisco', '3650', 'Liverpool, Better str'],
+#         ['sw4', 'Cisco', '3650', 'London, Best str']]
+#
+# with open("sw_data.csv", "w") as f:
+#     writer = csv.writer(f, delimiter=";", lineterminator="\r")
+#     # for row in data:
+#     #     writer.writerow(row)
+#     writer.writerow(data)
+
+
+# with open("student1.csv", "w") as f:
+#     name = ['Имя', 'Возраст']
+#     file_writer = csv.DictWriter(f, delimiter=";", lineterminator='\r', fieldnames=name)
+#     file_writer.writeheader()
+#     file_writer.writerow({"Имя": "Женя", "Возраст": 6})
+#     file_writer.writerow({"Имя": "Ваня", "Возраст": 45})
+#     file_writer.writerow({"Имя": "Сережа", "Возраст": 21})
+
+# data = [{
+#     'hostname': 'sw1',
+#     'location': 'London',
+#     'model': '3750',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw2',
+#     'location': 'Liverpool',
+#     'model': '3850',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw3',
+#     'location': 'Liverpool',
+#     'model': '3650',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw4',
+#     'location': 'London',
+#     'model': '3650',
+#     'vendor': 'Cisco'
+# }]
+#
+# with open('dict.csv', 'w') as f:
+#     writer = csv.DictWriter(f, delimiter=";", lineterminator='\r',
+#                             fieldnames=data[0].keys())  # fieldnames=list(data[0].keys()))
+#     writer.writeheader()
+#     for d in data:
+#         writer.writerow(d)
+
+# import requests
+# import json
+#
+# response = requests.get('https://jsonplaceholder.typicode.com/todos')
+# # print(response.text)
+#
+# todos = json.loads(response.text)
+# # for i in todos:
+# #     print(i)
+#
+# with open('ff.csv', 'w') as f:
+#     writer = csv.DictWriter(f, todos[0].keys(), delimiter=';', lineterminator='\r', )
+#     writer.writeheader()
+#     for i in todos:
+#         writer.writerow(i)
+
+
+# Парсинг
+
+from bs4 import BeautifulSoup
